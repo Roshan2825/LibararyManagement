@@ -12,8 +12,8 @@ public class DBConnectionManager {
         try {
             HikariConfig config = new HikariConfig();
             config.setJdbcUrl("jdbc:mysql://localhost:3306/library_db");
-            config.setUsername("root");
-            config.setPassword("Root@123");
+            config.setUsername(System.getenv("DB_USER"));
+            config.setPassword(System.getenv("DB_PASS"));
             config.setMaximumPoolSize(10);
 
             dataSource = new HikariDataSource(config);

@@ -7,6 +7,7 @@ public class BorrowRecord {
     private Student student;
     private Book book;
     private LocalDate borrowDate;
+    private LocalDate dueDate;
     private LocalDate returnDate;
 
     public BorrowRecord() {
@@ -15,13 +16,15 @@ public class BorrowRecord {
         this.student = student;
         this.book = book;
         this.borrowDate = LocalDate.now();
+        this.dueDate = borrowDate.plusDays(14); 
         this.returnDate = null;
     }
-    public BorrowRecord(int id, Student student, Book book, LocalDate borrowDate, LocalDate returnDate) {
+    public BorrowRecord(int id, Student student, Book book, LocalDate borrowDate,LocalDate dueDate ,LocalDate returnDate) {
         this.id = id;
         this.student = student;
         this.book = book;
         this.borrowDate = borrowDate;
+        this.dueDate = dueDate;
         this.returnDate = returnDate;
     }
 
@@ -37,6 +40,9 @@ public class BorrowRecord {
 
     public LocalDate getBorrowDate() {return borrowDate;}
     public void setBorrowDate(LocalDate borrowDate) {this.borrowDate = borrowDate;}
+
+    public LocalDate getDueDate() { return dueDate; }
+    public void setDueDate(LocalDate dueDate) { this.dueDate = dueDate; }
 
     public LocalDate getReturnDate() {return returnDate;}
     public void setReturnDate(LocalDate returnDate) {this.returnDate = returnDate;}
